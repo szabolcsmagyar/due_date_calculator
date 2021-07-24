@@ -1,7 +1,6 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 from src.validator.submit_date_validator import submitDateValidator
 from src.validator.turnaround_time_validator import turnaroundTimeValidator
-
 
 class dueDateCalculator:
     def __init__(self, submit_date, turnaround_time):
@@ -43,7 +42,7 @@ class dueDateCalculator:
             extra_days = 7 - due_date.isoweekday() + 1
             due_date = due_date + timedelta(extra_days)
 
-        return self.days_add, self.hours_add, due_date
+        return due_date
 
     def run(self):
         return self.calculate_time()
